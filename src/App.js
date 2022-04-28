@@ -1,5 +1,7 @@
+import { Location } from "./components/Location";
+
 function App() {
-  return <div>Test</div>;
+  return <Location />;
 }
 
 export default App;
