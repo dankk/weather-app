@@ -14,7 +14,7 @@ export function Location() {
         dispatch(setCoords(position.coords));
       });
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!coords.latitude || !coords.longitude) return;
@@ -24,7 +24,7 @@ export function Location() {
     };
 
     fetchData().catch((error) => console.error(error));
-  }, [coords]);
+  }, [coords, dispatch]);
 
   return (
     <>
