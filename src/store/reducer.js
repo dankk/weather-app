@@ -1,4 +1,4 @@
-const initialState = { coords: {}, city: null, weather: {} };
+const initialState = { coords: null, city: null, weather: null };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

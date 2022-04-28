@@ -17,7 +17,7 @@ export function Location() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (!coords.latitude || !coords.longitude) return;
+    if (!coords) return;
     const fetchData = async () => {
       const city = await getCityFromCoords(coords.latitude, coords.longitude);
       dispatch(setCity(city));
@@ -27,10 +27,10 @@ export function Location() {
   }, [coords, dispatch]);
 
   return (
-    <>
-      <div>Latitude: {coords.latitude}</div>
-      <div>Longitude: {coords.longitude}</div>
+    <div style={{ padding: 8 }}>
+      <div>Latitude: {coords?.latitude}</div>
+      <div>Longitude: {coords?.longitude}</div>
       <div>City: {city}</div>
-    </>
+    </div>
   );
 }
