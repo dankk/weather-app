@@ -30,11 +30,20 @@ export function WeatherDetails({ city }) {
     <div className="weatherDetails">
       <div className="title">Weather</div>
       {weather ? (
-        <>
-          <div>{weather.summary.title}</div>
-          <div>{weather.temperature.actual}°C</div>
-          <div>Wind: {weather.wind.speed} m/s</div>
-        </>
+        <div className="weatherDetailsInner">
+          <div>
+            <div>{weather.summary.description}</div>
+            <div>{weather.temperature.actual}°C</div>
+            <div>Wind: {weather.wind.speed} m/s</div>
+          </div>
+          <div>
+            <img
+              id="wicon"
+              src={`http://openweathermap.org/img/wn/${weather.summary.icon}@2x.png`}
+              alt="Weather icon"
+            />
+          </div>
+        </div>
       ) : (
         <>Loading...</>
       )}

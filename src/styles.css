@@ -5,6 +5,12 @@
   margin: auto;
 }
 
+.weatherDetailsInner {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .location {
   padding: 8px;
   border: 1px solid black;
