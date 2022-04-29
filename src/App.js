@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Location } from "./components/Location";
 import { WeatherDetails } from "./components/WeatherDetails";
-import "./App.css";
+import "./styles.css";
 
 function App() {
   const city = useSelector((state) => state.city);

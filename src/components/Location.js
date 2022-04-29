@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCityFromCoords } from "../api";
 import { setCoords, setCity, setError } from "../store/actions";
-import "./Location.css";
+import "../styles.css";
 
 export function Location() {
   const dispatch = useDispatch();

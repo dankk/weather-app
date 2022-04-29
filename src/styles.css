@@ -1,0 +1,28 @@
+.weatherDetails {
+  padding: 8px;
+  border: 1px solid cyan;
+  width: 300px;
+  margin: auto;
+}
+
+.location {
+  padding: 8px;
+  border: 1px solid black;
+  width: 300px;
+  margin: 4px auto;
+}
+
+.title {
+  margin-bottom: 4px;
+  font-size: large;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.error {
+  color: red;
+}
