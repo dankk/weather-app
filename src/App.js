@@ -8,9 +8,9 @@ function App() {
   const error = useSelector((state) => state.error);
 
   return (
-    <div className="App">
+    <div className="app">
       <Location />
-      <WeatherDetails city={city} />
+      {city ? <WeatherDetails city={city} /> : null}
       {error && <div className="error">Error: {error}</div>}
     </div>
   );

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCityFromCoords } from "../api";
 import { setCoords, setCity, setError } from "../store/actions";
+import "./Location.css";
 
 export function Location() {
   const dispatch = useDispatch();
@@ -30,10 +31,17 @@ export function Location() {
   }, [coords, dispatch]);
 
   return (
-    <div style={{ padding: 8 }}>
-      <div>Latitude: {coords?.latitude}</div>
-      <div>Longitude: {coords?.longitude}</div>
-      <div>City: {city}</div>
+    <div className="location">
+      <div className="title">Location</div>
+      {coords ? (
+        <>
+          <div>Latitude: {coords?.latitude}</div>
+          <div>Longitude: {coords?.longitude}</div>
+          <div>City: {city}</div>
+        </>
+      ) : (
+        <>Loading...</>
+      )}
     </div>
   );
 }

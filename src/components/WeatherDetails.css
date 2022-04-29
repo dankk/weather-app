@@ -1,0 +1,11 @@
+.weatherDetails {
+  padding: 8px;
+  border: 1px solid cyan;
+  width: 300px;
+  margin: auto;
+}
+
+.title {
+  margin-bottom: 4px;
+  font-size: large;
+}

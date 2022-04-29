@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWeatherForCity } from "../api";
 import { setError, setWeather } from "../store/actions";
+import "./WeatherDetails.css";
 
 export function WeatherDetails({ city }) {
   const dispatch = useDispatch();
@@ -24,17 +25,22 @@ export function WeatherDetails({ city }) {
     });
   }, [city, dispatch]);
 
-  if (!weather) return;
-
   return (
-    <div style={{ padding: 8 }}>
-      <div>
-        <div>{weather.summary.title}</div>
-        <div>{weather.temperature.actual}</div>
-      </div>
-      <div style={{ marginTop: 8 }}>
-        <button onClick={handleRefresh}>Refresh</button>
-      </div>
+    <div className="weatherDetails">
+      <div className="title">Weather</div>
+      {weather ? (
+        <>
+          <div>
+            <div>{weather.summary.title}</div>
+            <div>{weather.temperature.actual}°C</div>
+          </div>
+          <div style={{ marginTop: 8 }}>
+            <button onClick={handleRefresh}>Refresh</button>
+          </div>
+        </>
+      ) : (
+        <>Loading...</>
+      )}
     </div>
   );
 }
