@@ -31,16 +31,14 @@ export function WeatherDetails({ city }) {
       <div className="title">Weather</div>
       {weather ? (
         <>
-          <div>
-            <div>{weather.summary.title}</div>
-            <div>{weather.temperature.actual}°C</div>
-            <div>Wind: {weather.wind.speed} m/s</div>
-          </div>
+          <div>{weather.summary.title}</div>
+          <div>{weather.temperature.actual}°C</div>
+          <div>Wind: {weather.wind.speed} m/s</div>
         </>
       ) : (
         <>Loading...</>
       )}
-      <div style={{ marginTop: 8 }}>
+      <div className="button">
         <button onClick={handleRefresh}>Refresh</button>
       </div>
     </div>
