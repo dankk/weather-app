@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCityFromCoords } from "../api";
-import { setCoords, setCity } from "../store/actions";
+import { setCoords, setCity, setError } from "../store/actions";
 
 export function Location() {
   const dispatch = useDispatch();
@@ -23,7 +23,10 @@ export function Location() {
       dispatch(setCity(city));
     };
 
-    fetchData().catch((error) => console.error(error));
+    fetchData().catch((error) => {
+      console.error(error);
+      dispatch(setError(error.message));
+    });
   }, [coords, dispatch]);
 
   return (

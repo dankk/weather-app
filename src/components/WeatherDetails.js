@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWeatherForCity } from "../api";
-import { setWeather } from "../store/actions";
+import { setError, setWeather } from "../store/actions";
 
 export function WeatherDetails({ city }) {
   const dispatch = useDispatch();
   const weather = useSelector((state) => state.weather);
-  const state = useSelector((state) => state);
 
   const fetchData = async () => {
     const weatherData = await getWeatherForCity(city);
@@ -19,10 +18,11 @@ export function WeatherDetails({ city }) {
 
   useEffect(() => {
     if (!city) return;
-    fetchData().catch((error) => console.error(error));
+    fetchData().catch((error) => {
+      console.error(error);
+      dispatch(setError(error.message));
+    });
   }, [city, dispatch]);
-
-  console.log(weather);
 
   if (!weather) return;
 

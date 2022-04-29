@@ -5,11 +5,13 @@ import "./App.css";
 
 function App() {
   const city = useSelector((state) => state.city);
+  const error = useSelector((state) => state.error);
 
   return (
     <div className="App">
       <Location />
       <WeatherDetails city={city} />
+      {error && <div className="error">Error: {error}</div>}
     </div>
   );
 }
