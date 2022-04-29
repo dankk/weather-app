@@ -14,6 +14,8 @@ export function Location() {
       navigator.geolocation.getCurrentPosition((position) => {
         dispatch(setCoords(position.coords));
       });
+    } else {
+      dispatch(setError("Could not detect user location"));
     }
   }, [dispatch]);
 
