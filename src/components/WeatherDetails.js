@@ -9,6 +9,7 @@ export function WeatherDetails({ city }) {
   const weather = useSelector((state) => state.weather);
 
   const fetchData = async () => {
+    dispatch(setWeather(null));
     const weatherData = await getWeatherForCity(city);
     dispatch(setWeather(weatherData));
   };
@@ -34,13 +35,13 @@ export function WeatherDetails({ city }) {
             <div>{weather.summary.title}</div>
             <div>{weather.temperature.actual}°C</div>
           </div>
-          <div style={{ marginTop: 8 }}>
-            <button onClick={handleRefresh}>Refresh</button>
-          </div>
         </>
       ) : (
         <>Loading...</>
       )}
+      <div style={{ marginTop: 8 }}>
+        <button onClick={handleRefresh}>Refresh</button>
+      </div>
     </div>
   );
 }
